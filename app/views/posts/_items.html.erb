@@ -1,0 +1,28 @@
+
+  <div class="container">
+    
+  <% posts.each do |post| %>
+  　<div class="row">
+    <div class="col-md-3">
+      <%= image_tag post.image.url if post.image? %>
+    </div>
+    <div class="col-md-3">
+      <p>Item</p>
+      <%= link_to post.name, post %> 
+    </div>
+    <div class="col-md-3">
+      <p>Price</p>
+      <%= "¥"+post.price  %>
+    </div>
+    <div class="col-md-3">
+    <!--postをdeletemethodに渡して、確認させる-->
+      <%= render 'buyings/buying_button', post: post %> 
+    </div>
+    
+    </div>
+  <% end %>
+  <br>
+  
+  
+  </div>
+

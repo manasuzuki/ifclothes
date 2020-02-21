@@ -1,0 +1,20 @@
+<ul class="list-unstyled">
+  <% @buys.each do |buy| %>
+    <li class="media mb-3">　
+      <div class="media-body">
+        <div>
+          <%= image_tag buy.image.url if buy.image? %>
+          <%= link_to buy.name, post_path %> 
+        </div>
+        <div>
+            
+            <!--postをdeletemethodに渡して、確認させる-->
+        
+          <p><%= render 'buyings/buying_button', post: post %> </p>
+          
+        </div>
+      </div>
+    </li>
+  <% end %>
+
+</ul>

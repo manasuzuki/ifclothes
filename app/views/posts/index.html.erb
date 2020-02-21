@@ -1,18 +1,20 @@
+<%= render 'layouts/flash_messages' %>
 
-<% if current_user.admin?  %>
-<p id="notice"><%= notice %></p>
+<head>
+    <link rel="stylesheet" href="./posts.css" type="text/css">
+    <img src="spring.jpg">
+</head>
 
-<h1>Posts</h1>
-
-<table>
-  
-
-  <tbody>
+  <body>
+    <div class="text-center">
+    <span style="border-bottom: solid 1px red;">All Items</span>
+    </div>
+     <br>
+    <div class="container">
+     <div class="row">
     <% @posts.each do |post| %>
-      <tr>
-        
-        <td>
-        
+     <div class="col-md-3">
+       <div>
         <%= link_to post_path(post), class: 'hoge' do %>
           <% if post.image? %>
             <%= image_tag post.image.to_s %>
@@ -20,45 +22,15 @@
             <%= image_tag 'no_image.png' %>
           <% end %>
           <% end %>
+          <br>
+          <br>
+          <div class="text-center">
           <%= post.name %>
-          </td>
-      </tr>
+          </div>
+        </div>
+      </div>  
     <% end %>
-  </tbody>
-</table>
-
+  </body>
 <br>
 
-<%= link_to 'New Post', new_post_path %>
 
-<%else%>
-
-<p id="notice"><%= notice %></p>
-
-<h1>Posts</h1>
-
-<table>
-  
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        
-        <td>
-        
-        <%= link_to post_path(post), class: 'hoge' do %>
-          <% if post.image? %>
-            <%= image_tag post.image.to_s %>
-          <% else %>
-            <%= image_tag 'no_image.png' %>
-          <% end %>
-          <% end %>
-          <%= post.name %>
-          </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<%end%>

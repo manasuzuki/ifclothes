@@ -1,67 +1,97 @@
-
+<%= render 'layouts/flash_messages' %>
 <% if current_user.admin?  %>
-
-<p id="notice"><%= notice %></p>
-
-<p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @post.image.url if @post.image? %>
-</p>
-
-<strong>Name:</strong>
-  <%= @post.name %>
-</p>  
-
-<strong>Price:</strong>
-  <%= @post.price %>
-</p>
-
-<strong>Color:</strong>
+<div class="container">
+  <div class="row">
+  <div class="col-md-7">
+    <p><%= link_to "TOPPAGE", posts_path %>><%= @post.name %></p>
+  <%= image_tag @post.image.url, :size =>'500x500' if @post.image? %>
+  </div>
+<div class="col-md-5">
+  <div style="text-align: left;">
+  <p>
+    <h5><%= @post.name %></h5>
+  </p>
+  <p>
+    <h2><%= "¥"+@post.price %></h2>
+  </p>
+  <p>
+    <span>-------------------------------------------------------------------------</span>
+  </p>
+  <p>
+  <strong>COLOR:</strong>
   <%= @post.color %>
-</p>
-
-<strong>Size:</strong>
+  </p>
+  <p>
+  <strong>SIZE:</strong>
   <%= @post.size %>
-</p>
-
-<strong>Content:</strong>
+  </p>  
+  <p>
+  <strong>Content:</strong>
   <%= @post.content %>
-</p>  
+  </p>  
+  <p>
+    <span style="font-weight: 400;">■発着期間について</span>
+  </p>
+  <p>
+    <span style="font-weight: 400;">発送は注文を受けてから2週間を目安にしてください。</span>
+  </p>
+  <p>
+    <span>-------------------------------------------------------------------------</span>
+  </p>
+  <%= render 'buyings/buying_button', post: @post %>
+  
+  
+  </div>
+ </div>
+</div>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %> |
 <%= link_to 'Destroy', post_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <%else%>
-<p id="notice"><%= notice %></p>
 
-<p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @post.image.url if @post.image? %>
-</p>
-
-<strong>Name:</strong>
-  <%= @post.name %>
-</p>  
-
-<strong>Price:</strong>
-  <%= @post.price %>
-</p>
-
-<strong>Color:</strong>
+<div class="container">
+  <div class="row">
+  <div class="col-md-7">
+    <p><%= link_to "TOPPAGE", posts_path %>><%= @post.name %></p>
+  <%= image_tag @post.image.url, :size =>'500x500' if @post.image? %>
+  </div>
+<div class="col-md-5">
+  <div style="text-align: left;">
+  <p>
+    <h5><%= @post.name %></h5>
+  </p>
+  <p>
+    <h2><%= "¥"+@post.price %></h2>
+  </p>
+  <p>
+    <span>-------------------------------------------------------------------------</span>
+  </p>
+  <p>
+  <strong>COLOR:</strong>
   <%= @post.color %>
-</p>
-
-<strong>Size:</strong>
+  </p>
+  <p>
+  <strong>SIZE:</strong>
   <%= @post.size %>
-</p>
-
-<strong>Content:</strong>
+  </p>  
+  <p>
+  <strong>Content:</strong>
   <%= @post.content %>
-</p>  
-<% end %>
-
-<%= link_to 'Back', posts_path %>
+  </p>  
+  <p>
+    <span style="font-weight: 400;">■発着期間について</span>
+  </p>
+  <p>
+    <span style="font-weight: 400;">発送は注文を受けてから2週間を目安にしてください。</span>
+  </p>
+  <p>
+    <span>-------------------------------------------------------------------------</span>
+  </p>
+  <%= render 'buyings/buying_button', post: @post %>
+  
+  
+  </div>
+ </div>
+</div>
+<%end%>

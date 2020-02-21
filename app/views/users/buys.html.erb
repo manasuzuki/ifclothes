@@ -1,0 +1,10 @@
+<%= render 'layouts/flash_messages' %>
+<p><%= link_to "TOPPAGE", posts_path %>>BUYINGLIST</p>
+<span style="border-bottom: solid 1px red;">BUYINGLIST</span>
+
+<%= render 'posts/items', posts: @buys %>
+
+<%= form_for @user, :url => {controller: "buyings", action: "update"} do |f| %>
+
+<%= f.submit '購入データを送信する', class: 'btn btn btn-outline-info btn-block' %>
+<% end %>
