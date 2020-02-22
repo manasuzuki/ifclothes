@@ -1,4 +1,6 @@
 class BuyingsController < ApplicationController
+  before_action :require_user_logged_in
+  
   def create
     post = Post.find(params[:post_id])
     current_user.buy(post)
@@ -19,6 +21,9 @@ class BuyingsController < ApplicationController
     time = Time.new
     @buying.update( status: "購入済み", updated_at: time)
     flash[:success] = '購入しました。'
-    redirect_to root_url 
-  end  
+    redirect_to indexfinish_buying_path
+  end
+  
+  
+  
 end

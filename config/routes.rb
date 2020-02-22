@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     end
   end  
   get 'post', to: "posts#index"
-  resources :posts
-   resources :buyings, only:[:create, :destroy, :update]
+  resources :posts 
+   resources :buyings, only:[:create, :destroy, :update,] do
+   member do
+   get "indexfinish"
+   end
+  end 
 end

@@ -1,7 +1,6 @@
 <%= render 'layouts/flash_messages' %>
 
 <head>
-    <link rel="stylesheet" href="./posts.css" type="text/css">
     <img src="spring.jpg">
 </head>
 
@@ -13,7 +12,7 @@
     <div class="container">
      <div class="row">
     <% @posts.each do |post| %>
-     <div class="col-md-3">
+     <div class="col-5 col-md-3 ">
        <div>
         <%= link_to post_path(post), class: 'hoge' do %>
           <% if post.image? %>
