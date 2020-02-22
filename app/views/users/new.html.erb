@@ -1,11 +1,12 @@
 
+
 <div class="text-center">
   <span style="border-bottom: solid 1px red;">New Users</span>
 </div>
 
 <div class="row">
  <div class="col-sm-6 offset-sm-3">
-<%= form_for(@user) do |f| %>
+<%= form_with(model: @user, local: true) do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
  
   <div class="form-group">
