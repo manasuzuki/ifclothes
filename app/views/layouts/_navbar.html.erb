@@ -1,13 +1,17 @@
-<header class="mb-4">
+<header class="mb-6">
   <nav class="navbar navbar-expand-lg navbar-dark "style="background-color:#e3f2fd;">
     <a href="/" class="navbar-brand" style="color:#696969">Ifclothes</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-  　 <% if logged_in? %>
-  　 <% if current_user.admin?  %>
-  　  <li class="nav-item dropdown">
-    　<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Menu</a>
-    　<ul class="dropdown-menu dropdown-menu-right">
+      <ul class="navbar-nav">
+  　    <% if logged_in? %>
+  　    <% if current_user.admin?  %>
+  　    <li class="nav-item dropdown">
+    　 <a href="#" class="nav-link dropdown-toggle" style="color:#696969" data-toggle="dropdown">Menu</a>
+    　 <ul class="dropdown-menu dropdown-menu-right">
         <li class="dropdown-item"><%= link_to 'アイテム一覧', posts_path %></li>
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"><%= link_to 'カート', buys_user_path(current_user) %></li>
@@ -35,12 +39,10 @@
         <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
       </ul>
     　</li>
-
-    　    
       <% end %>    
       <% else %>
-    
       <%end%>
+      </ul>
    </div>     
   </nav>
 </header>

@@ -4,7 +4,11 @@
 
 <%= render 'posts/items', posts: @buys %>
 
-<%= form_for @user, :url => {controller: "buyings", action: "update"} do |f| %>
 
+<% unless @buys.present? %>
+<div>カート内は空です</div>
+<% else %>
+<%= form_for @user, :url => {controller: "buyings", action: "update"} do |f| %>
 <%= f.submit '購入データを送信する', class: 'btn btn btn-outline-info btn-block' %>
+<% end %>
 <% end %>
