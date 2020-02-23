@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_02_20_155728) do
     t.bigint "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status：string"
+    t.string "status"
     t.index ["post_id"], name: "index_buyings_on_post_id"
     t.index ["user_id", "post_id"], name: "index_buyings_on_user_id_and_post_id", unique: true
     t.index ["user_id"], name: "index_buyings_on_user_id"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_02_20_155728) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin"
+    t.boolean "admin", default: false
   end
 
   add_foreign_key "buyings", "posts"
